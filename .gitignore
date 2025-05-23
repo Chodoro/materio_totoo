@@ -1,0 +1,25 @@
+# Ignore everything by default
+*
+
+# But NOT these (the ! means "do not ignore")
+
+# Allow directories to be tracked
+!*/
+
+# Allow Python files and Django files
+!*.py
+!*.html
+!*.css
+!*.js
+!*.json
+
+# Allow config files, templates, etc.
+!*.txt
+!*.md
+!*.cfg
+!*.ini
+!manage.py
+!db.sqlite3
+
+# Don't ignore .gitignore itself
+!.gitignore
