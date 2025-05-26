@@ -3,10 +3,13 @@
 # Exclude everything from vendors
 /src/assets/vendor
 
-# Ignoring static/assets folders
-./assets/
-static/
-staticfiles/
+# Ignore only compiled or auto-generated static files
+# Do NOT ignore your actual static assets
+
+# Keep these folders
+!assets/
+!static/
+!staticfiles/
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
