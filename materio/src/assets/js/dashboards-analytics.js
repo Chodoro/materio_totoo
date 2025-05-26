@@ -1,3 +1,4 @@
+/* jshint esversion: 11 */
 /**
  * Dashboard Analytics
  */
@@ -13,25 +14,28 @@
   chartBgColor = config.colors.chartBgColor;
 
   document.addEventListener('DOMContentLoaded', function () {
+    // ✅ FIXED: Get canvas context
     const ctx = document.getElementById('weeklyOverviewChart')?.getContext('2d');
+
+    // ✅ Only proceed if canvas exists
     if (ctx) {
+      const labelData = JSON.parse(document.getElementById('collegeLabels').textContent);
+      const dataData = JSON.parse(document.getElementById('collegeData').textContent);
+
       new Chart(ctx, {
         type: 'bar',
         data: {
-          labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+          labels: labelData,
           datasets: [{
-            label: 'Sales',
-            data: [32, 55, 45, 75, 55, 35, 70],
-            backgroundColor: function (context) {
-              const value = context.raw;
-              return value >= 75 && value <= 80 ? config.colors.primary : chartBgColor;
-            },
+            label: 'Students',
+            data: dataData,
+            backgroundColor: config.colors.primary,
             borderRadius: {
               topLeft: 8,
               topRight: 8
             },
-            barPercentage: 0.3,
-            categoryPercentage: 0.8
+            barPercentage: 0.5,
+            categoryPercentage: 0.7
           }]
         },
         options: {
@@ -44,33 +48,29 @@
             tooltip: {
               callbacks: {
                 label: function (context) {
-                  return context.raw + 'K';
+                  return context.raw + ' students';
                 }
               }
             }
           },
           scales: {
             x: {
+              ticks: {
+                color: labelColor,
+                font: { size: 13, family: 'Inter' }
+              },
               grid: {
                 display: false,
                 drawBorder: false,
                 drawTicks: false
-              },
-              ticks: {
-                display: false
               }
             },
             y: {
-              min: 0,
-              max: 90,
+              beginAtZero: true,
               ticks: {
-                stepSize: 30,
-                callback: value => value + 'K',
-                font: {
-                  size: 13,
-                  family: 'Inter'
-                },
-                color: labelColor
+                stepSize: 10,
+                color: labelColor,
+                font: { size: 13, family: 'Inter' }
               },
               grid: {
                 borderDash: [8],
@@ -81,14 +81,13 @@
         }
       });
     }
-  });
-})();
 
-
-  // Sessions Column Chart
-  // --------------------------------------------------------------------
-  const sessionsColumnChartEl = document.querySelector('#sessionsColumnChart'),
-    sessionsColumnChartConfig = {
+    // ✅ Sessions Chart logic (unchanged below)
+  
+    // Sessions Column Chart
+    // --------------------------------------------------------------------
+    const sessionsColumnChartEl = document.querySelector('#sessionsColumnChart');
+    const sessionsColumnChartConfig = {
       chart: {
         height: 90,
         parentHeightOffset: 0,
@@ -222,8 +221,10 @@
         }
       ]
     };
-  if (typeof sessionsColumnChartEl !== undefined && sessionsColumnChartEl !== null) {
-    const sessionsColumnChart = new ApexCharts(sessionsColumnChartEl, sessionsColumnChartConfig);
-    sessionsColumnChart.render();
-  }
+
+    if (typeof sessionsColumnChartEl !== 'undefined' && sessionsColumnChartEl !== null) {
+      const sessionsColumnChart = new ApexCharts(sessionsColumnChartEl, sessionsColumnChartConfig);
+      sessionsColumnChart.render();
+    }
+  });
 })();
