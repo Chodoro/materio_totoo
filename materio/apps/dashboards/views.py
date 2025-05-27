@@ -4,6 +4,8 @@ from web_project import TemplateLayout
 from django.db.models import Count
 
 class DashboardsView(TemplateView):
+    template_name = 'dashboard_analytics.html'
+    
     def get_context_data(self, **kwargs):
         context = TemplateLayout.init(self, super().get_context_data(**kwargs))
 
@@ -13,12 +15,16 @@ class DashboardsView(TemplateView):
         context['programs_count'] = Program.objects.count()
         context['students_count'] = Student.objects.count()
 
-    
+        context['college_cah'] = College.objects.get(college_name='College of Arts and Humanitiess')
+        context['college_cba'] = College.objects.get(college_name='College of Business and Accountancy')
+        context['college_cs'] = College.objects.get(college_name='College of Sciences')
+        context['college_ec'] = College.objects.get(college_name='External Campuses')
+        context['college_cc'] = College.objects.get(college_name='College of Criminal')
 
         context['program_social_work'] = Program.objects.get(prog_name='Bachelor of Science in Social Work')
         context['program_psychology'] = Program.objects.get(prog_name='Bachelor of Science in Psychology')
         context['program_accountancy'] = Program.objects.get(prog_name='Bachelor of Science in Accountancy')
-        context['program_philstud'] = Program.objects.get(prog_name='Bachelor of Arts in Philippine Studies')
+        context['program_comm'] = Program.objects.get(prog_name='Bachelor of Arts in Communication')
         context['program_track2'] = Program.objects.get(prog_name='Track 2-Agri-business')
 
 
@@ -148,5 +154,11 @@ class DashboardsView(TemplateView):
             })
 
         context['top_colleges'] = top_colleges
+
+        college_labels = [college['acronym'] for college in top_colleges]
+        college_data = [college['student_count'] for college in top_colleges]
+
+        context['college_labels'] = college_labels
+        context['college_data'] = college_data
 
         return context
