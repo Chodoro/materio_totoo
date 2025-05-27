@@ -132,7 +132,6 @@ class DashboardsView(TemplateView):
             student_count=Count('program__student')
         ).order_by('-student_count')
 
-        # Manually assign acronyms
         college_acronyms = {
             "College of Computer Studies": "CCS",
             "College of Arts and Humanitiess": "CAH",
@@ -144,9 +143,8 @@ class DashboardsView(TemplateView):
 
         }
 
-        # Build context list
         top_colleges = []
-        for college in college_qs[:5]:  # top 5
+        for college in college_qs[:3]: 
             top_colleges.append({
                 'name': college.college_name,
                 'acronym': college_acronyms.get(college.college_name, '---'),

@@ -158,15 +158,15 @@
   <div class="col-xl-4 col-md-6">
     <div class="card">
       <div class="card-header d-flex align-items-center justify-content-between">
-        <h5 class="card-title m-0 me-2">Total Earning</h5>
+        <h5 class="card-title m-0 me-2">Tuition Fees Paid</h5>
         <div class="dropdown">
           <button class="btn text-muted p-0" type="button" id="totalEarnings" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="ri-more-2-line ri-24px"></i>
           </button>
           <div class="dropdown-menu dropdown-menu-end" aria-labelledby="totalEarnings">
-            <a class="dropdown-item" href="javascript:void(0);">Last 28 Days</a>
-            <a class="dropdown-item" href="javascript:void(0);">Last Month</a>
-            <a class="dropdown-item" href="javascript:void(0);">Last Year</a>
+            <a class="dropdown-item" href="javascript:void(0);">2024-2025</a>
+            <a class="dropdown-item" href="javascript:void(0);">2023-2024</a>
+            <a class="dropdown-item" href="javascript:void(0);">2022-2023</a>
           </div>
         </div>
       </div>
@@ -194,7 +194,7 @@
               <div>
                 <h6 class="mb-2">Php 34,895.65</h6>
                 <div class="progress bg-label-primary" style="height: 4px;">
-                  <div class="progress-bar bg-primary" style="width: 75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-primary" style="width: 54.75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
             </div>
@@ -211,7 +211,7 @@
               <div>
                 <h6 class="mb-2">Php 18,650.20</h6>
                 <div class="progress bg-label-info" style="height: 4px;">
-                  <div class="progress-bar bg-info" style="width: 75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-info" style="width: 29%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
             </div>
@@ -228,7 +228,7 @@
               <div>
                 <h6 class="mb-2">Php 10,245.80</h6>
                 <div class="progress bg-label-secondary" style="height: 4px;">
-                  <div class="progress-bar bg-secondary" style="width: 75%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                  <div class="progress-bar bg-secondary" style="width: 16%" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                 </div>
               </div>
             </div>
@@ -245,8 +245,10 @@
       <!-- Total Profit line chart -->
       <div class="col-sm-6">
         <div class="card h-100">
+          
           <div class="card-header pb-0">
-            <h4 class="mb-0">$86.4k</h4>
+            <h4 class="mb-0">Php 5,799.24</h4>
+            <p class="text-success mb-0">+10%</p>
           </div>
           <div class="card-body">
             <div id="totalProfitLineChart" class="mb-3"></div>
@@ -260,9 +262,9 @@
         <div class="card h-100">
           <div class="card-header d-flex align-items-center justify-content-between">
             <div class="avatar">
-              <div class="avatar-initial bg-secondary rounded-circle shadow-xs">
-                <i class="ri-pie-chart-2-line ri-24px"></i>
-              </div>
+                <div class="avatar-initial bg-success rounded shadow-xs">
+                  <i class="ri-wallet-3-line ri-24px"></i>
+                </div>
             </div>
             <div class="dropdown">
               <button class="btn text-muted p-0" type="button" id="totalProfitID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -276,12 +278,11 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-1">Total Profit</h6>
+            <h6 class="mb-1">Total Donations</h6>
             <div class="d-flex flex-wrap mb-1 align-items-center">
-              <h4 class="mb-0 me-2">$25.6k</h4>
-              <p class="text-success mb-0">+42%</p>
+              <h4 class="mb-0 me-2">Php 25,867</h4>
+              <p class="text-success mb-0">+12%</p>
             </div>
-            <small>Weekly Project</small>
           </div>
         </div>
       </div>
@@ -291,9 +292,9 @@
         <div class="card h-100">
           <div class="card-header d-flex align-items-center justify-content-between">
             <div class="avatar">
-              <div class="avatar-initial bg-primary rounded-circle shadow-xs">
-                <i class="ri-file-word-2-line ri-24px"></i>
-              </div>
+                <div class="avatar-initial bg-primary rounded shadow-xs">
+                  <i class="ri-group-line ri-24px"></i>
+                </div>
             </div>
             <div class="dropdown">
               <button class="btn text-muted p-0" type="button" id="newProjectID" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -307,12 +308,11 @@
             </div>
           </div>
           <div class="card-body">
-            <h6 class="mb-1">New Project</h6>
+            <h6 class="mb-1">Transferees</h6>
             <div class="d-flex flex-wrap mb-1 align-items-center">
-              <h4 class="mb-0 me-2">862</h4>
-              <p class="text-danger mb-0">-18%</p>
+              <h4 class="mb-0 me-2">{{ students_count }}+</h4>
             </div>
-            <small>Yearly Project</small>
+            <small>From Schools Outside Palawan</small>
           </div>
         </div>
       </div>
@@ -338,7 +338,7 @@
   <div class="col-xl-4 col-md-6">
     <div class="card h-100">
       <div class="card-header d-flex align-items-center justify-content-between">
-        <h5 class="card-title m-0 me-2">All Colleges</h5>
+        <h5 class="card-title m-0 me-2">Colleges with New Enrollees</h5>
         <div class="dropdown">
           <button class="btn text-muted p-0" type="button" id="saleStatus" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="ri-more-2-line ri-24px"></i>
@@ -395,8 +395,8 @@
                 </div>
                 <div class="d-flex w-100 flex-wrap align-items-center justify-content-between gap-2">
                   <div class="me-2">
-                    <h6 class="mb-0">{{ student_data1.firstname }} {{ student_data1.lastname }}</h6>
-                    <p class="mb-0">{{ student_data1.student_id }}</p>
+                    <h6 class="mb-0">{{ student_data12.firstname }} {{ student_data12.lastname }}</h6>
+                    <p class="mb-0">{{ student_data12.student_id }}</p>
                   </div>
                   <h6 class="text-success mb-0">1.00</h6>
                 </div>
@@ -551,17 +551,17 @@
                     <img src="{% static 'img/avatars/1.png' %}" alt="Avatar" class="rounded-circle">
                   </div>
                   <div>
-                    <h6 class="mb-0 text-truncate">{{ student_data1.firstname }} {{ student_data1.lastname }}</h6>
+                    <h6 class="mb-0 text-truncate">{{ student_data12.firstname }} {{ student_data12.lastname }}</h6>
                   </div>
                 </div>
               </td>
-              <td class="text-truncate">{{ student_data1.student_id }}</td>
+              <td class="text-truncate">{{ student_data12.student_id }}</td>
               <td class="text-truncate">
                 <div class="d-flex align-items-center">
-                  <span>{{ student_data1.program }}</span>
+                  <span>{{ student_data12.program }}</span>
                 </div>
               </td>
-              <td><span class="badge bg-label-warning rounded-pill">{{ student_data1.college }}</span></td>
+              <td><span class="badge bg-label-warning rounded-pill">{{ student_data12.college }}</span></td>
             </tr>
             <tr>
               <td>
@@ -580,7 +580,7 @@
                   <span>{{ student_data2.program }}</span>
                 </div>
               </td>
-              <td><span class="badge bg-label-warning rounded-pill">{{ student_data2.college }}</span></td>
+              <td><span class="badge bg-label-secondary rounded-pill">{{ student_data2.college }}</span></td>
             </tr>
             <tr>
               <td>
@@ -618,7 +618,7 @@
                   <span>{{ student_data4.program }}</span>
                 </div>
               </td>
-              <td><span class="badge bg-label-warning rounded-pill">{{ student_data4.college }}</span></td>
+              <td><span class="badge bg-label-success rounded-pill">{{ student_data4.college }}</span></td>
             </tr>
             <tr>
               <td>
@@ -656,7 +656,7 @@
                   <span>{{ student_data6.program }}</span>
                 </div>
               </td>
-              <td><span class="badge bg-label-warning rounded-pill">{{ student_data6.college }}</span></td>
+              <td><span class="badge bg-label-success rounded-pill">{{ student_data6.college }}</span></td>
             </tr>
             <tr>
               <td>
@@ -684,17 +684,17 @@
                     <img src="{% static 'img/avatars/1.png' %}" alt="Avatar" class="rounded-circle">
                   </div>
                   <div>
-                    <h6 class="mb-0 text-truncate">{{ student_data8.firstname }} {{ student_data8.lastname }}</h6>
+                    <h6 class="mb-0 text-truncate">{{ student_data12.firstname }} {{ student_data12.lastname }}</h6>
                   </div>
                 </div>
               </td>
-              <td class="text-truncate">{{ student_data8.student_id }}</td>
+              <td class="text-truncate">{{ student_data12.student_id }}</td>
               <td class="text-truncate">
                 <div class="d-flex align-items-center">
-                  <span>{{ student_data8.program }}</span>
+                  <span>{{ student_data12.program }}</span>
                 </div>
               </td>
-              <td><span class="badge bg-label-warning rounded-pill">{{ student_data8.college }}</span></td>
+              <td><span class="badge bg-label-warning rounded-pill">{{ student_data12.college }}</span></td>
             </tr>
           </tbody>
         </table>
